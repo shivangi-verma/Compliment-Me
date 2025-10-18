@@ -1,4 +1,3 @@
-HTML CSSResult Skip Results Iframe
 :root {
   --lg-bg-color: rgba(255, 255, 255, 0.25);
   --lg-highlight: rgba(255, 255, 255, 0.75);
@@ -9,7 +8,7 @@ HTML CSSResult Skip Results Iframe
 }
 
 /* ========== BASE LAYOUT ========== */
-body {  
+body {
   margin: 0;
   padding: 2rem 0;
   min-height: calc(100vh - 4rem);
@@ -211,21 +210,37 @@ body {
 }
 
 /* ========== ICONS AND IMAGES ========== */
-.glass-content a {
+.glass-content button {
   display: inline-block;
   position: relative;
-  padding: 1px;
   border-radius: 1.2rem;
 }
 
-.glass-content a img {
+.glass-content button {
   display: block;
-  width: 75px;
+
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 }
 
-.glass-content a img:hover {
+.glass-content button:hover {
   transform: scale(0.95);
 }
+.textfield {
+  border: none;
+  /*   background: none; */
+  padding: 24px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
 
- 
+input,
+textarea,
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: inherit;
+  resize: none;
+}
