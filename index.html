@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Compliment Me</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      :root {
+        --primary-color: #561c24;
+        --secondary-color: #7d323c;
+        --background-color: #c7b7a3;
+        --border-color: #a19484;
+      }
+    </style>
+  </head>
+  <body class="w-full h-screen bg-[#e8d8c4]">
+    <video
+      id="bg-video"
+      muted
+      loop
+      autoplay
+      src="./assets/grainy-bg.mp4"
+    ></video>
+    <!-- form -->
+    <div id="form-container" class="m-auto w-full">
+      <div class="flex flex-col m-auto w-lg justify-center">
+        <h1
+          class="text-[var(--primary-color)] text-4xl font-bold text-center pb-6"
+        >
+          COMPLIMENT ME🥹
+        </h1>
+        <input
+          id="username"
+          type="text"
+          placeholder="Name"
+          class="border-3 border-[var(--border-color)] rounded-md p-2 m-2"
+        />
+
+        <input
+          id="feeling"
+          type="text"
+          placeholder="What are you feeling?"
+          class="border-3 border-[var(--border-color)] rounded-md p-2 m-2"
+        />
+        <textarea
+          name=""
+          id="rant"
+          placeholder="You can rant if you want!"
+          class="border-3 border-[var(--border-color)] rounded-md p-2 m-2"
+        ></textarea>
+        <button
+          id="form-btn"
+          class="border rounded-md p-2 m-2 bg-[var(--primary-color)] text-white font-xl hover:bg-[var(--secondary-color)]"
+        >
+          Compliment me
+        </button>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
