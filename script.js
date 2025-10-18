@@ -1,4 +1,7 @@
-const GROQ_API_KEY = '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';
+ import dotenv from "dotenv";
+dotenv.config();
+const apiKey = process.env.apiKey; 
+
 
 async function main() {
   const username = document.getElementById('username').value;
@@ -18,7 +21,7 @@ async function main() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${GROQ_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           model: 'openai/gpt-oss-20b',
