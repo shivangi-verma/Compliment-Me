@@ -1,11 +1,3 @@
-#bg-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -100;
-}
 :root {
   --lg-bg-color: rgba(255, 255, 255, 0.25);
   --lg-highlight: rgba(255, 255, 255, 0.75);
@@ -14,8 +6,8 @@
   --lg-red: #fb4268;
   --lg-grey: #5b5b5b;
 }
+ 
 
-/* ========== BASE LAYOUT ========== */
 body {
   margin: 0;
   padding: 2rem 0;
@@ -25,9 +17,14 @@ body {
   align-items: center;
   justify-content: center;
   font-family: sans-serif;
-  /* background: url("https://images.unsplash.com/photo-1551384963-cccb0b7ed94b?q=80&w=3247&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")  
-     center/cover;  
-    animation: bg-move 5s ease-in-out infinite alternate; */
+
+  background-image: url("../assets/japan-background-digital-art.jpg");
+  background-size: cover; /* makes it cover the entire body */
+  background-position: center; /* centers the image */
+  background-repeat: no-repeat; /* prevents tiling */
+  background-attachment: fixed; /* optional: keeps it fixed while scrolling */
+
+  animation: bg-move 5s ease-in-out infinite alternate;
 }
 
 @keyframes bg-move {
@@ -39,6 +36,9 @@ body {
   }
 }
 
+.hidden {
+  display: none;
+}
 /* ========== CONTAINER ========== */
 .container {
   display: flex;
@@ -66,7 +66,7 @@ body {
 }
 
 .glass-container--rounded {
-  border-radius: 5rem;
+  border-radius: 1rem;
   margin: 0.5rem;
   fill: var(--lg-grey);
 }
@@ -108,15 +108,15 @@ body {
 }
 
 .glass-item--active {
-  background: rgba(0, 0, 0, 0.25);
-  color: black;
+  background: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   margin: 0 -0.5rem;
   padding: 0.25rem 1.95rem;
   border-radius: 5rem;
 }
 
 .glass-item--active svg {
-  fill: black;
+  fill: rgb(255, 255, 255);
 }
 
 .player {
@@ -145,7 +145,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .player__legend__title {
@@ -180,7 +180,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  backdrop-filter: blur(0px);
+  backdrop-filter: blur(2px);
   filter: url(#lg-dist);
   isolation: isolate;
 }
@@ -212,25 +212,87 @@ body {
 }
 
 .glass-content--inline {
-  padding: 0.25rem 2rem 0.25rem 0.75rem;
+  /* padding: 0.25rem 2rem 0.25rem 0.75rem; */
   flex: 1 1 auto;
   justify-content: space-between;
 }
+ 
 
-/* ========== ICONS AND IMAGES ========== */
-.glass-content a {
-  display: inline-block;
-  position: relative;
-  padding: 1px;
-  border-radius: 1.2rem;
-}
-
-.glass-content a img {
-  display: block;
-  width: 75px;
+.btn {
+  border-radius: 5rem;
+  background-color: rgba(255, 255, 255, 0);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 }
 
-.glass-content a img:hover {
+.btn:active {
   transform: scale(0.95);
+}
+.textfield {
+  border: none;
+  background: none;
+  padding: 12px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+.form-content {
+  background: transparent;
+  border: none;
+  width: 100%;
+  resize: none;
+}
+.form-content::placeholder {
+  color: white;
+  font-size: larger;
+}
+.txtar {
+  height: 200px;
+}
+.form-content:focus {
+  outline: none;
+}
+/* .btn {
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.btn:active {
+  display: block;
+  transform: scale(1);
+} */
+
+/* heading css */
+
+h1 {
+  position: relative;
+  color: white;
+}
+.headline {
+  width: 100%;
+  font: 8vw system-ui, sans-serif;
+  font-weight: 900;
+  height: 150px;
+}
+
+@supports (backdrop-filter: blur(2px)) {
+  .visually-hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  h1 {
+    margin: 0;
+    backdrop-filter: blur(2px);
+    background: rgba(white, 0.2);
+    clip-path: url(#lockup-headline-mask-path);
+    filter: url(#lg-dist);
+    background: var(--lg-bg-color);
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    display: flex;
+
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+      drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
+  }
 }
