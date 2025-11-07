@@ -6,7 +6,6 @@
   --lg-red: #fb4268;
   --lg-grey: #5b5b5b;
 }
- 
 
 body {
   margin: 0;
@@ -19,6 +18,7 @@ body {
   font-family: sans-serif;
 
   background-image: url("../assets/japan-background-digital-art.jpg");
+  /* background-image: url("../assets/pexels-mo-eid.jpg"); */
   background-size: cover; /* makes it cover the entire body */
   background-position: center; /* centers the image */
   background-repeat: no-repeat; /* prevents tiling */
@@ -210,23 +210,33 @@ body {
   gap: 20px;
   padding: 1rem 1.5rem 0.9rem;
 }
-
+.glass-btn-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 .glass-content--inline {
   /* padding: 0.25rem 2rem 0.25rem 0.75rem; */
   flex: 1 1 auto;
   justify-content: space-between;
 }
- 
-
+/* button */
 .btn {
-  border-radius: 5rem;
-  background-color: rgba(255, 255, 255, 0);
+  background: none;
+  color: white;
+  font-weight: 900;
+  font-size: 20px;
+  border-radius: 4.8rem;
+  padding: 2rem 3rem 1.8rem;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 }
 
 .btn:active {
   transform: scale(0.95);
 }
+/* text input fields */
 .textfield {
   border: none;
   background: none;
@@ -234,7 +244,18 @@ body {
   color: white;
   font-weight: 500;
   font-size: 16px;
+  padding: 1rem 1.5rem 0.9rem;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* -webkit-box-shadow: 0 0 0px 1000px #f0f8ff inset;   */
+  -webkit-text-fill-color: white; /* Black text color */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .form-content {
   background: transparent;
   border: none;
@@ -251,15 +272,6 @@ body {
 .form-content:focus {
   outline: none;
 }
-/* .btn {
-  transform: scale(1);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
-}
-
-.btn:active {
-  display: block;
-  transform: scale(1);
-} */
 
 /* heading css */
 
@@ -295,4 +307,45 @@ h1 {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
       drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
   }
+}
+
+/* ========== GLOBAL FONT FAMILY & DEFAULTS ========== */
+body,
+input,
+textarea,
+button,
+select,
+p,
+span,
+label {
+  font-family: "system-ui", sans-serif; /* set the same font */
+}
+
+/* Make non-placeholder text bold (except headings) */
+body,
+input,
+textarea,
+button,
+select,
+p,
+span,
+label {
+  font-weight: 600; /* semi-bold */
+}
+
+/* Headings can have their own weight */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900; /* keep bold/heavy */
+  font-family: "system-ui", sans-serif;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* muted white */
+  font-weight: 400; /* normal weight for placeholders */
 }
